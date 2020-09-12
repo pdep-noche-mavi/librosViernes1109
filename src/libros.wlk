@@ -1,12 +1,33 @@
 object andy{
+	const property librosLeidos = []
 	
+	method leerLibro(unLibro){
+		librosLeidos.add(unLibro)
+	}
+	method ultimoLeido() = librosLeidos.last()
 	
+	method primeroLeido() = librosLeidos.first()
+	
+	method cantidadLeidos() = librosLeidos.size()
+	
+	method olvidarPrimerLibroLeido(){
+		librosLeidos.remove( self.primeroLeido() )
+	}
+	
+	method olvidarLibro(unLibro){
+		librosLeidos.remove(unLibro)
+	}
+	
+	method librosBuenosLeidos() = librosLeidos.filter({ unLibro => unLibro.valoracion() > 12 })
+	
+	method peorLibro() = librosLeidos.min({ unLibro => unLibro.valoracion()})	
+	method mejorLibro() = librosLeidos.max({ unLibro => unLibro.valoracion()})		
 }
 
 object harryPotter{
 	const nombre = "Harry Potter - El Misterio del Principe Mestizo"
-	const cantidadLectores=10500156
-	
+	var property cantidadLectores=10500156
+		
 	method valoracion(){
 		return cantidadLectores/1000000
 	}
@@ -15,6 +36,8 @@ object harryPotter{
 object seniorDeLosAnillos{
 	const nombre = "El Señor de los Anillos - Las dos Torres"
 	const cantidadPaginas = 450
+	
+	method nombre() = nombre
 	
 	method valoracion(){
 		return cantidadPaginas/45
@@ -30,8 +53,8 @@ object elPrincipito {
 
 object losJuegosDelHambre {
 	const nombre = "Los Juegos del Hambre"
-	const votosPositivos = 1600200
-	const votosNegativos = 300600
+	var votosPositivos = 1600200
+	var votosNegativos = 300600
 	
 	method nombre() = nombre
 	
@@ -43,7 +66,7 @@ object losJuegosDelHambre {
 
 object venasAbiertasDeAmericaLatina{
 	const nombre = "Venas Abiertas de America Latina"
-	const fechaSalida = new Date(day = 30, month=6,year=1971)
+	const anioSalida = 1971
 	
 	method nombre() = nombre
 	method valoracion(){
@@ -52,7 +75,7 @@ object venasAbiertasDeAmericaLatina{
 	
 	method cantidadDeAnios(){
 		const hoy = new Date()
-		return hoy.year() - fechaSalida.year()
+		return hoy.year() - anioSalida
 	}
 }
 
@@ -68,7 +91,7 @@ object rayuela{
 	}
 }
 
-object padreRicopadrePobre{
+object padreRicoPadrePobre{
 	const nombre = "Padre Rico, Padre Pobre"
 	const cantidadPaginas = 207
 	
@@ -82,7 +105,7 @@ object padreRicopadrePobre{
 
 object laCabania{
 	var nombre = "La Cabaña"
-	const fechaSalida = new Date(day = 3, month = 2, year= 2007)
+	const anioSalida = 2007
 	
 	method nombre() = nombre
 	method valoracion(){
@@ -91,6 +114,6 @@ object laCabania{
 	
 	method cantidadDeAnios(){
 		const hoy = new Date()
-		return hoy.year() - fechaSalida.year()
+		return hoy.year() - anioSalida
 	}
 }

@@ -1,7 +1,24 @@
 import libros.*
 
-test "testX" {
-
-	assert.that(true)
-
+test "Andy puede recordar el último libro que leyó" {
+	andy.leerLibro(laCabania)
+	assert.equals(laCabania, andy.ultimoLeido())
 }
+
+test "Andy puede recordar el último libro que leyó habiendo leído otros" {
+	andy.leerLibro(laCabania)
+	andy.leerLibro(harryPotter)
+	assert.equals(harryPotter, andy.ultimoLeido())
+}
+
+test "Andy puede recordar el primer libro que leyó" {
+	andy.leerLibro(laCabania)
+	assert.equals(laCabania, andy.primeroLeido())
+}
+
+test "Andy puede recordar el primer libro que leyó habiendo leído otros" {
+	andy.leerLibro(laCabania)
+	andy.leerLibro(harryPotter)
+	assert.equals(laCabania, andy.primeroLeido())
+}
+
