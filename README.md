@@ -1,4 +1,4 @@
-## Libros!
+## Libros! Parte A (11-09)
 
 Andy estuvo leyendo mucho durante la cuarentena. Decidimos hacer una aplicación (obviamente en Wollok) para poder conocer un poco más sobre los libros que leyó, cada uno con su valoración (que se calcula de distintas maneras en cada caso).
 
@@ -45,3 +45,24 @@ De los libros se sabe:
 12. Obtener el promedio de valoración de los libros que leyó.
 
 13. Obtener el nombre de algún libro leído por Andy que empiece con "El".
+
+
+## ¡Libros regresa! Parte B (18-09)
+
+### Primera parte
+Recuerdan los libros de la semana pasada? Resulta que Andy se tomó la semana para seguir leyendo, y se terminó el resto de la saga de Harry Potter, los cuales tienen su valoración y nombre también y se calculan de la misma forma que para el Misterio del Príncipe Mestizo.
+
+* Se quiere modelar a los libros de Harry Potter, que conocen su nombre, la cantidad de lectores y su valoración se calcula como sus lectores dividido _1000000_.
+
+### Segunda parte
+Andy también leyó unos cuantos libros más, son todos BestSeller: al igual que en Los Juegos del Hambre, la valoración depende de los votos del público. Algunos más son: El Señor de los Anillos, El Hobbit, El león, la bruja y el armario... entre otros.
+
+* Modelar a los Libros BestSeller que como ya sabemos, tienen nombre, votos positivos y negativos y su valoración la calculan como la resta entre los votos positivos y negativos dividido __100000_. En caso de que este resultado sea negativo, su valoración es 0.
+* Hay algunos objetos en nuestro dominio que ya no tienen que existir. ¿Cuáles? 
+
+### Tercera parte
+Andy le recomendó a Paul algunos libros y lo terminó convenciendo de leer de los que él leyó. Otros ayudantes también pueden sumarse a leer en las próximas semanas. 
+
+* Modelar la posibilidad de que Paul y el resto de ayudantes puedan leer también. Deben entender los mismos mensajes que Andy **spoiler alert**.
+
+* Algunos objetos quedaron, ¿qué tienen en común con las clases agregadas?
