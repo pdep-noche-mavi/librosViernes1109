@@ -1,5 +1,5 @@
-object andy{
-	const property librosLeidos = []
+class Lector{
+	const property librosLeidos = new List()
 	
 	method leerLibro(unLibro){
 		librosLeidos.add(unLibro)
@@ -18,18 +18,37 @@ object andy{
 		librosLeidos.remove(unLibro)
 	}
 	
+	method cantidadUnicosLeidos(){
+		librosLeidos.asSet().size()	
+	}
+	
 	method librosBuenosLeidos() = librosLeidos.filter({ unLibro => unLibro.valoracion() > 12 })
 	
 	method peorLibro() = librosLeidos.min({ unLibro => unLibro.valoracion()})	
 	method mejorLibro() = librosLeidos.max({ unLibro => unLibro.valoracion()})		
+	
+	method promedioValoraciones() = librosLeidos.sum({ unLibro => unLibro.valoracion()}) / self.cantidadLeidos() 
 }
 
-object harryPotter{
-	const nombre = "Harry Potter - El Misterio del Principe Mestizo"
-	var property cantidadLectores=10500156
-		
+class HarryPotter {
+	const property nombre 
+	var cantidadLectores
+	
+	method sumarLectores(cantidad){
+		cantidadLectores = cantidadLectores + cantidad 
+	}
 	method valoracion(){
 		return cantidadLectores/1000000
+	}
+}
+
+object cartasAAquienPretendeEnseniar{
+	const property nombre = "Cartas"
+	var cantidadLectores=1000
+		
+	method valoracion(){
+		//misma interfaz pero diferente comportamiento, implementacion
+		return cantidadLectores*1.5
 	}
 }
 
@@ -51,19 +70,20 @@ object elPrincipito {
 	method valoracion() = valoracion 
 }
 
-object losJuegosDelHambre {
-	const nombre = "Los Juegos del Hambre"
-	var votosPositivos = 1600200
-	var votosNegativos = 300600
-	
-	method nombre() = nombre
-	
-	method valoracion(){
-		var coeficiente = votosPositivos-votosNegativos
-		return if (coeficiente<0) 0 else (coeficiente/100000)
-	}
+class Autoayuda {
+	const valoracion = 5
+	method nombre()= "No importa"
+	method valoracion()= valoracion
 }
 
+class BestSeller {
+	const property nombre
+	var votosPositivos 
+	var votosNegativos
+	
+	method valoracion() = [((votosPositivos-votosNegativos)/100000), 0].max()
+}
+ 
 object venasAbiertasDeAmericaLatina{
 	const nombre = "Venas Abiertas de America Latina"
 	const anioSalida = 1971
